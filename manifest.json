@@ -1,0 +1,35 @@
+{
+    "name":"Extension",
+    "version": "2",
+    "manifest_version": 3,
+    
+    "action" : {
+        "default_title": "Linkedin Extension"
+    },
+    
+    "background": {
+        "service_worker": "./scripts/event.js"
+    },
+    
+    "content_scripts": [
+        {
+            "matches": ["https://*.linkedin.com/*"],
+            "css": ["./css/content.css"],
+            "js": ["./scripts/event.js","./scripts/content.js"]
+        }
+    ],
+
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab"
+    ],
+
+    "web_accessible_resources": [{
+        "resources": ["./views/slider.html", "./scripts/event.js"],
+        "matches": ["<all_urls>"]
+    }],
+    "homepage_url": "https://github.com/mallath/"
+}
+
+    
